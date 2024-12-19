@@ -1,0 +1,456 @@
+﻿[
+  {
+    "RuleId": "ST-REL-006",
+    "RuleName": "Infinite Loop",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-005",
+    "RuleName": "Hardcoded Activity Properties",
+    "Parameters": [
+      {
+        "Key": "IncludeActivities",
+        "UserValue": "",
+        "DefaultValue": "System.Activities.Statements.StateMachine,System.Activities.Statements.State",
+        "LocalizedName": "Include Activities:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "ExcludeActivities",
+        "UserValue": "",
+        "DefaultValue": "",
+        "LocalizedName": "Exclude Activities:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "IncludeProperties",
+        "UserValue": "",
+        "DefaultValue": "*",
+        "LocalizedName": "Include Properties:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "ExcludeProperties",
+        "UserValue": "",
+        "DefaultValue": "Fuzzy Selector, Selector, Window selector (Application instance), Message, Attribute, StartingCell, SheetName, StatusText, Text, EndPoint, Name, WorkflowFileName, AssetName",
+        "LocalizedName": "Exclude Properties:",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-002",
+    "RuleName": "Activity Name Defaults",
+    "Parameters": [],
+    "Severity": "Info",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-003",
+    "RuleName": "Empty Catch Block",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-009",
+    "RuleName": "Prefix DataTable Variables",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-008",
+    "RuleName": "Variable Length Exceeded",
+    "Parameters": [
+      {
+        "Key": "Length",
+        "UserValue": "",
+        "DefaultValue": "30",
+        "LocalizedName": "Length:",
+        "ConstraintRegex": "[+]?\\d+"
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-001",
+    "RuleName": "Variables Naming Convention",
+    "Parameters": [
+      {
+        "Key": "Regex",
+        "UserValue": "^(?!.*_.*_.*_)([A-Za-z])([A-Za-z0-9_])*$",
+        "DefaultValue": "^(dt_)?([A-Z]|[a-z])+([0-9])*$|_out_[A-Za-z][A-Za-z0-9_]*$",
+        "LocalizedName": "Regex:",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-ANA-006",
+    "RuleName": "Main Workflow Exists",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-027",
+    "RuleName": "Required Packages",
+    "Parameters": [
+      {
+        "Key": "RequiredPackages",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Required Package References",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-014",
+    "RuleName": "Package Restrictions",
+    "Parameters": [
+      {
+        "Key": "ProhibitedPackages",
+        "UserValue": "",
+        "DefaultValue": null,
+        "LocalizedName": "Prohibited Packages",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "AllowedPackages",
+        "UserValue": null,
+        "DefaultValue": null,
+        "LocalizedName": "Allowed Packages",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-010",
+    "RuleName": "Unused Dependencies",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-SEC-008",
+    "RuleName": "SecureString Variable Usage",
+    "Parameters": [
+      {
+        "Key": "VariableDepthUsage",
+        "UserValue": "",
+        "DefaultValue": "1",
+        "LocalizedName": "Variable depth usage:",
+        "ConstraintRegex": "(1|2|3)"
+      }
+    ],
+    "Severity": "Info",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-SEC-007",
+    "RuleName": "SecureString Argument Usage",
+    "Parameters": [],
+    "Severity": "Info",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-SEC-009",
+    "RuleName": "SecureString Misusage",
+    "Parameters": [
+      {
+        "Key": "Excluded",
+        "UserValue": null,
+        "DefaultValue": "",
+        "LocalizedName": "Excluded Activities:",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-PRR-004",
+    "RuleName": "Hardcoded Delay Activity",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-026",
+    "RuleName": "Activity Restrictions",
+    "Parameters": [
+      {
+        "Key": "ProhibitedActivities",
+        "UserValue": "",
+        "DefaultValue": "",
+        "LocalizedName": "Prohibited Activities",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "AllowedActivities",
+        "UserValue": "",
+        "DefaultValue": "",
+        "LocalizedName": "Allowed Activities",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-009",
+    "RuleName": "Unused Variables",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-009",
+    "RuleName": "Deeply Nested Activities",
+    "Parameters": [
+      {
+        "Key": "Threshold",
+        "UserValue": "",
+        "DefaultValue": "7",
+        "LocalizedName": "Threshold: ",
+        "ConstraintRegex": "[+]?\\d+"
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-011",
+    "RuleName": "Write Line Usage",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-005",
+    "RuleName": "Redundant Sequences",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-008",
+    "RuleName": "Empty Sequence",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-004",
+    "RuleName": "Unreachable Activities",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-MRD-007",
+    "RuleName": "Nested If Clauses",
+    "Parameters": [
+      {
+        "Key": "Threshold",
+        "UserValue": "",
+        "DefaultValue": "3",
+        "LocalizedName": "Threshold: ",
+        "ConstraintRegex": "[+]?\\d+"
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-026",
+    "RuleName": "Delay Activity Usage",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-024",
+    "RuleName": "Persistence Activities Check",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-028",
+    "RuleName": "Arguments Serialization Prerequisite",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-025",
+    "RuleName": "Variables Serialization Prerequisite",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-023",
+    "RuleName": "Empty Workflow",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-DBP-007",
+    "RuleName": "Multiple Flowchart Layers",
+    "Parameters": [
+      {
+        "Key": "LayersCount",
+        "UserValue": "",
+        "DefaultValue": "2",
+        "LocalizedName": "Layer count:",
+        "ConstraintRegex": "[+]?\\d+"
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-016",
+    "RuleName": "Argument Length Exceeded",
+    "Parameters": [
+      {
+        "Key": "Length",
+        "UserValue": "",
+        "DefaultValue": "30",
+        "LocalizedName": "Length:",
+        "ConstraintRegex": "[+]?\\d+"
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-006",
+    "RuleName": "Variable Overrides Argument",
+    "Parameters": [],
+    "Severity": "Error",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-012",
+    "RuleName": "Argument Default Values",
+    "Parameters": [],
+    "Severity": "Info",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-011",
+    "RuleName": "Prefix Datatable Arguments",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-002",
+    "RuleName": "Arguments Naming Convention",
+    "Parameters": [
+      {
+        "Key": "InRegex",
+        "UserValue": "^(?!.*_.*_.*_)([A-Za-z])([A-Za-z0-9_])*$",
+        "DefaultValue": "^in_(dt_)?([A-Z]|[a-z])+([0-9])*$",
+        "LocalizedName": "In Regex:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "OutRegex",
+        "UserValue": "^(?!.*_.*_.*_)([A-Za-z])([A-Za-z0-9_])*$",
+        "DefaultValue": "^out_(dt_)?([A-Z]|[a-z])+([0-9])*$",
+        "LocalizedName": "Out Regex:",
+        "ConstraintRegex": null
+      },
+      {
+        "Key": "InOutRegex",
+        "UserValue": "^(?!.*_.*_.*_)([A-Za-z])([A-Za-z0-9_])*$",
+        "DefaultValue": "^io_(dt_)?([A-Z]|[a-z])+([0-9])*$",
+        "LocalizedName": "InOut Regex:",
+        "ConstraintRegex": null
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-005",
+    "RuleName": "Variable Overrides Variable",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-NMG-004",
+    "RuleName": "Display Name Duplication",
+    "Parameters": [
+      {
+        "Key": "Threshold",
+        "UserValue": "",
+        "DefaultValue": "1",
+        "LocalizedName": "Threshold: ",
+        "ConstraintRegex": "[+]?\\d+"
+      }
+    ],
+    "Severity": "Warning",
+    "ErrorsDescription": [
+      "Main.xaml: Body display name is defined many times. Current allowed threshold is 1. Code contains 2.",
+      "Main.xaml: Log Message - System Exception display name is defined many times. Current allowed threshold is 1. Code contains 2.",
+      "Main.xaml: Rethrow System Exception display name is defined many times. Current allowed threshold is 1. Code contains 2.",
+      "AFE_OneNote_ListDocumnets_TestCase.xaml: Body display name is defined many times. Current allowed threshold is 1. Code contains 2.",
+      "AFE_OneNote_ListDocumnets_TestCase.xaml: Verify Micro-Automation executed with no System exception display name is defined many times. Current allowed threshold is 1. Code contains 2."
+    ]
+  },
+  {
+    "RuleId": "ST-DBP-027",
+    "RuleName": "Persistence Best Practice",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": []
+  },
+  {
+    "RuleId": "ST-USG-020",
+    "RuleName": "Minimum Log Messages",
+    "Parameters": [],
+    "Severity": "Warning",
+    "ErrorsDescription": [
+      "AFE_OneNote_ListDocumnets_TestCase.xaml: Log Message not used in workflow AFE_OneNote_ListDocumnets_TestCase."
+    ]
+  },
+  {
+    "RuleId": "ST-ANA-009",
+    "RuleName": "File Activities Stats",
+    "Parameters": [],
+    "Severity": "Info",
+    "ErrorsDescription": [
+      "Main.xaml: Activities: 14",
+      "AFE_OneNote_ListDocumnets_TestCase.xaml: Activities: 14"
+    ]
+  },
+  {
+    "RuleId": "ST-ANA-003",
+    "RuleName": "Project Workflow Count",
+    "Parameters": [],
+    "Severity": "Info",
+    "ErrorsDescription": [
+      "project.json: Project workflow count:\r\n* Totals: 1 Folders and 2 workflows\r\n"
+    ]
+  }
+]

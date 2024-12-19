@@ -1,0 +1,87 @@
+{
+  "name": "AFE_OneNote_ListDocumnets",
+  "projectId": "4603c7a2-8558-4a1c-8898-db56b1b938d3",
+  "description": " Retrieves the names of your Notebooks, Sections, and Pages in OneNote",
+  "main": "Main.xaml",
+  "dependencies": {
+    "Interop.Microsoft.Office.Interop.OneNote": "[1.1.0.2]",
+    "UiPath.CodedWorkflows": "[24.10.0]",
+    "UiPath.System.Activities.Runtime": "[24.10.4]",
+    "UiPath.Testing.Activities": "[24.10.1]",
+    "UiPath.WebAPI.Activities": "[1.21.1]"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "23.10.3.0",
+  "projectVersion": "1.1.2",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [],
+    "saveToCloud": false
+  },
+  "arguments": {
+    "input": [],
+    "output": [
+      {
+        "name": "ResultMessage",
+        "type": "Newtonsoft.Json.Linq.JArray, Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed"
+      }
+    ]
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "56ecbf5e-cd1b-4430-93bb-0f9f2cb9e2bf",
+      "input": [],
+      "output": [
+        {
+          "name": "ResultMessage",
+          "type": "Newtonsoft.Json.Linq.JArray, Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed"
+        }
+      ]
+    },
+    {
+      "filePath": "GetOneNoteStructure.cs",
+      "uniqueId": "2505f496-909f-4f60-81bd-7f507f322bb6",
+      "input": [],
+      "output": [
+        {
+          "name": "Output",
+          "type": "Newtonsoft.Json.Linq.JArray, Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed"
+        }
+      ]
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Portable"
+}

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_Section_Filter="New" this:Main.in_Notebook_Filter="KBs" this:Main.in_Limit="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_Limit="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="ResultMessage" Type="OutArgument(njl:JArray)" />
     <x:Property Name="in_Section_Filter" Type="InArgument(x:String)" />
@@ -110,7 +110,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1315,3852" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1315,4382" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="JobData" />
     </Sequence.Variables>
@@ -128,9 +128,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <TryCatch DisplayName="Try Executing Automation" sap:VirtualizedContainerService.HintSize="620,3557" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Executing Automation" sap:VirtualizedContainerService.HintSize="620,4087" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="586,3007" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="586,3537" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="str_FilterType" />
           </Sequence.Variables>
@@ -145,7 +145,7 @@
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;Raw Result: &quot;+ResultMessage.ToString]" />
-          <Sequence DisplayName="Simple Filtering" sap:VirtualizedContainerService.HintSize="552,1753" sap2010:WorkflowViewState.IdRef="Sequence_46">
+          <Sequence DisplayName="Simple Filtering" sap:VirtualizedContainerService.HintSize="552,2283" sap2010:WorkflowViewState.IdRef="Sequence_46">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -234,12 +234,12 @@
                       <InArgument x:TypeArguments="x:String">[str_FilterType + "Y"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_48">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_50">
                     <Assign.To>
                       <OutArgument x:TypeArguments="njl:JArray">[ResultMessage]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.AsEnumerable().Where(Function(notebook) notebook("Sections.Section").any(Function(section) section("Section").ToString().IndexOf(in_Section_Filter, StringComparison.OrdinalIgnoreCase) &gt;= 0)).toarray())]</InArgument>
+                      <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", notebook("Sections").Where(Function(section) section("Section").ToString().Contains(in_Section_Filter) AndAlso section("Pages") IsNot Nothing)))).Where(Function(notebook) notebook("Sections").Count() &gt; 0).ToArray())]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_14" Text="[&quot;Section Filtered Result: &quot;+ResultMessage.ToString]" />
@@ -263,26 +263,34 @@
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[not string.IsNullOrEmpty(in_PageName_Filter)]" sap:VirtualizedContainerService.HintSize="518,75" sap2010:WorkflowViewState.IdRef="If_13">
+            <If Condition="[not string.IsNullOrEmpty(in_PageName_Filter)]" sap:VirtualizedContainerService.HintSize="518,605" sap2010:WorkflowViewState.IdRef="If_13">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,165" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,279" sap2010:WorkflowViewState.IdRef="Sequence_33">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_38">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_38">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_FilterType]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
                       <InArgument x:TypeArguments="x:String">[str_FilterType + "Y"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_49">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="njl:JArray">[ResultMessage]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", New JObject(notebook("Sections").select(Function(section) section("Pages").Where(Function(page) page("Page").ToString().Contains(in_PageName_Filter))))))).ToArray())]</InArgument>
                     </Assign.Value>
                   </Assign>
                 </Sequence>
@@ -442,7 +450,7 @@
               </Sequence>
             </ui:CommentOut.Body>
           </ui:CommentOut>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Filtered Result: &quot;+ResultMessage.ToString]" />
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Page Filtered Result: &quot;+ResultMessage.ToString]" />
           <If Condition="[in_Limit &gt; 0]" sap:VirtualizedContainerService.HintSize="552,424" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
               <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,165" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -456,7 +464,7 @@
                     <OutArgument x:TypeArguments="njl:JArray">[ResultMessage]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Take(in_Limit).ToArray())]</InArgument>
+                    <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", notebook("Sections").select(function(page) page("Pages").Take(in_Limit))))).ToArray())]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_Limit="0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_PageName_Filter="2021" this:Main.in_Limit="1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="ResultMessage" Type="OutArgument(njl:JArray)" />
     <x:Property Name="in_Section_Filter" Type="InArgument(x:String)" />
@@ -42,13 +42,13 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
       <x:String>Newtonsoft.Json.Linq</x:String>
-      <x:String>Newtonsoft.Json</x:String>
       <x:String>System.Dynamic</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Collections.Specialized</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>UiPath.Web.Activities</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>Newtonsoft.Json</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -110,7 +110,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1315,4382" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1146,4832" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:CurrentJobInfo" Name="JobData" />
     </Sequence.Variables>
@@ -128,9 +128,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:LogMessage>
-    <TryCatch DisplayName="Try Executing Automation" sap:VirtualizedContainerService.HintSize="620,4087" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Executing Automation" sap:VirtualizedContainerService.HintSize="620,4537" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="586,3537" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="586,3987" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="str_FilterType" />
           </Sequence.Variables>
@@ -145,7 +145,7 @@
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;Raw Result: &quot;+ResultMessage.ToString]" />
-          <Sequence DisplayName="Simple Filtering" sap:VirtualizedContainerService.HintSize="552,2283" sap2010:WorkflowViewState.IdRef="Sequence_46">
+          <Sequence DisplayName="Simple Filtering" sap:VirtualizedContainerService.HintSize="552,2771" sap2010:WorkflowViewState.IdRef="Sequence_46">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -161,7 +161,7 @@
                 </InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[not string.IsNullOrEmpty(in_Notebook_Filter)]" sap:VirtualizedContainerService.HintSize="518,736" sap2010:WorkflowViewState.IdRef="If_11">
+            <If Condition="[not string.IsNullOrEmpty(in_Notebook_Filter)]" sap:VirtualizedContainerService.HintSize="518,858" sap2010:WorkflowViewState.IdRef="If_11">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -195,13 +195,13 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,165" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,287" sap2010:WorkflowViewState.IdRef="Sequence_30">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_35">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_35">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_FilterType]</OutArgument>
                     </Assign.To>
@@ -209,10 +209,11 @@
                       <InArgument x:TypeArguments="x:String">[str_FilterType + "N"]</InArgument>
                     </Assign.Value>
                   </Assign>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="No Notebook Filter Applied" />
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[not string.IsNullOrEmpty(in_Section_Filter)]" sap:VirtualizedContainerService.HintSize="518,736" sap2010:WorkflowViewState.IdRef="If_12">
+            <If Condition="[not string.IsNullOrEmpty(in_Section_Filter)]" sap:VirtualizedContainerService.HintSize="518,858" sap2010:WorkflowViewState.IdRef="If_12">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -246,13 +247,13 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,165" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,287" sap2010:WorkflowViewState.IdRef="Sequence_32">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_36">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_36">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_FilterType]</OutArgument>
                     </Assign.To>
@@ -260,10 +261,11 @@
                       <InArgument x:TypeArguments="x:String">[str_FilterType + "N"]</InArgument>
                     </Assign.Value>
                   </Assign>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="No Section Filter Applied" />
                 </Sequence>
               </If.Else>
             </If>
-            <If Condition="[not string.IsNullOrEmpty(in_PageName_Filter)]" sap:VirtualizedContainerService.HintSize="518,605" sap2010:WorkflowViewState.IdRef="If_13">
+            <If Condition="[not string.IsNullOrEmpty(in_PageName_Filter)]" sap:VirtualizedContainerService.HintSize="518,849" sap2010:WorkflowViewState.IdRef="If_13">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -271,7 +273,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,279" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,401" sap2010:WorkflowViewState.IdRef="Sequence_33">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -285,24 +287,25 @@
                       <InArgument x:TypeArguments="x:String">[str_FilterType + "Y"]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_49">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_49">
                     <Assign.To>
                       <OutArgument x:TypeArguments="njl:JArray">[ResultMessage]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", New JObject(notebook("Sections").select(Function(section) section("Pages").Where(Function(page) page("Page").ToString().Contains(in_PageName_Filter))))))).ToArray())]</InArgument>
+                      <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", New JArray(notebook("Sections").Select(Function(section) New JObject(New JProperty("SectionID", section("SectionID")), New JProperty("Section", section("Section")), New JProperty("Pages",New JArray(section("Pages").Where(Function(page) page("Page").ToString().Contains(in_PageName_Filter) AndAlso section("Pages").count() &gt; 0))))).Where(Function(section) section("Pages").Count() &gt; 0).ToArray())))).Where(Function(notebook) notebook("Sections").Count() &gt; 0).ToArray())]</InArgument>
                     </Assign.Value>
                   </Assign>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Page Filtered Result: &quot;+ResultMessage.ToString]" />
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,165" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,287" sap2010:WorkflowViewState.IdRef="Sequence_34">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_39">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_39">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[str_FilterType]</OutArgument>
                     </Assign.To>
@@ -310,6 +313,7 @@
                       <InArgument x:TypeArguments="x:String">[str_FilterType + "N"]</InArgument>
                     </Assign.Value>
                   </Assign>
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_16" Text="No Page Filter Applied" />
                 </Sequence>
               </If.Else>
             </If>
@@ -450,36 +454,36 @@
               </Sequence>
             </ui:CommentOut.Body>
           </ui:CommentOut>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="[&quot;Page Filtered Result: &quot;+ResultMessage.ToString]" />
-          <If Condition="[in_Limit &gt; 0]" sap:VirtualizedContainerService.HintSize="552,424" sap2010:WorkflowViewState.IdRef="If_4">
+          <If Condition="[in_Limit &gt; 0]" sap:VirtualizedContainerService.HintSize="552,630" sap2010:WorkflowViewState.IdRef="If_4">
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,165" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,287" sap2010:WorkflowViewState.IdRef="Sequence_11">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+                <Assign sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_4">
                   <Assign.To>
                     <OutArgument x:TypeArguments="njl:JArray">[ResultMessage]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", notebook("Sections").select(function(page) page("Pages").Take(in_Limit))))).ToArray())]</InArgument>
+                    <InArgument x:TypeArguments="njl:JArray">[New Newtonsoft.Json.Linq.JArray(ResultMessage.Select(Function(notebook) New JObject(New JProperty("NotebookID", notebook("NotebookID")), New JProperty("Notebook", notebook("Notebook")), New JProperty("Sections", New JArray(notebook("Sections").Select(Function (section) New JObject(New JProperty("SectionID",section("SectionID")),New JProperty("Section", section("Section")),New JProperty("Pages", notebook("Sections").select(function(page) page("Pages").Take(in_Limit)))))).ToArray()))))]</InArgument>
                   </Assign.Value>
                 </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Limited Result: &quot;+ ResultMessage.ToString]" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_12">
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,173" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="No Limit Applied" />
               </Sequence>
             </If.Else>
           </If>
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;Limited Result: &quot;+ ResultMessage.ToString]" />
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,122" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[&quot;Filter Type: &quot; + str_FilterType]" />
           <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="552,113" sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="[&quot;Notebook: &quot; + in_Notebook_Filter + Environment.NewLine + &quot;Section: &quot; + in_Section_Filter + Environment.NewLine + &quot;PageName: &quot; + in_PageName_Filter + Environment.NewLine + &quot;Limit: &quot; + in_Limit.ToString]" />
         </Sequence>
